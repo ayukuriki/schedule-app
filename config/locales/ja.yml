@@ -1,0 +1,14 @@
+  ja:
+      activerecord:
+        models:
+          user: ユーザー
+        attributes:
+          user:
+            title: タイトル
+            updated_at: 更新日
+            start_date:開始日
+            start_date:開始日
+            end_date:終了日
+            all_day:終日
+            age: 年齢
+            memo: メモ
