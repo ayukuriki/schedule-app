@@ -15,7 +15,13 @@
   </tr>
   <tr>
     <th>終日</th>
-    <td><%= @allflag %></td>
+    <td>
+          <% if @user.all_day %>
+          "○"
+          <% else %>
+          ""
+          <% end %>
+    </td>
   </tr>
   <tr>
     <th>スケジュールメモ</th>

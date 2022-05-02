@@ -24,7 +24,11 @@
         <td><%= user.title %></td>
         <td><%= user.start_date %></td>
         <td><%= user.end_date %></td>
-        <td><%= @allflag %></td>
+        <td>
+          <% if user.all_day %>
+          ○
+          <% end %>
+        </td>
         <td><%= user.updated_at.to_s(:datetime_jp) %></td>
         <td><%= link_to "確認", user %></td>
         <td><%= link_to "編集", [:edit,user] %></td>
