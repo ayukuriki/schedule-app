@@ -7,10 +7,18 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag    'application' %>
   </head>
 
   <body>
+    <header>
+    <h1>Ruby on Rails スケジュール管理アプリ</h1>
+    </header>
+    <div id="maincontent">
     <%= yield %>
+    </div>
+    <footer>
+    <h1>現在の日時:<%= $year %>年<%= $month %>月<%= $day %>日 スケジュール合計:<%= $numbers %></h1>
+    </footer>
   </body>
 </html>
