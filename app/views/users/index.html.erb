@@ -22,8 +22,8 @@
       <tr>
         <td><%= user.id %></td>
         <td><%= user.title %></td>
-        <td><%= user.start_date %></td>
-        <td><%= user.end_date %></td>
+        <td><%= user.start_date.strftime('%Y年%m月%d日') %></td>
+        <td><%= user.end_date.strftime('%Y年%m月%d日') %></td>
         <td>
           <% if user.all_day %>
           ○

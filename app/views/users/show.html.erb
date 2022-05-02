@@ -7,7 +7,7 @@
   </tr>
   <tr>
     <th>開始日</th>
-    <td><%= @user.start_date %></td>
+    <td><%= @user.start_date.strftime('%Y年%m月%d日') %></td>
   </tr>
   <tr>
     <th>投稿日時</th>
@@ -17,9 +17,8 @@
     <th>終日</th>
     <td>
           <% if @user.all_day %>
-          "○"
-          <% else %>
-          ""
+          ○
+        
           <% end %>
     </td>
   </tr>
@@ -33,6 +32,6 @@
   <ul>
     <li><%= link_to "スケジュール一覧に戻る", :users %></li>
     <li><%= link_to "スケジュールを編集する", :edit_user %></li>
-    <li><%= link_to "削除",[:user] %></li>
+    <li><%= link_to "削除", :user, method: :delete, data: { confirm: "本当に削除しますか？" }%></li>
   </ul>
 </div>

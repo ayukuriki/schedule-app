@@ -3,9 +3,6 @@ class UsersController < ApplicationController
 
   require 'date'
   $date = Date.today
-  $year= $date.year
-  $month= $date.month
-  $day= $date.day
   
 
   def index
@@ -22,10 +19,10 @@ class UsersController < ApplicationController
       if @user.save
         redirect_to :users
         flash[:notice] = "スケジュールを新規登録しました"
+        $numbers= User.count
           if @user.all_day
              @allflag = "○"
-          else
-             @allflag = " "
+          
           end
         $numbers= User.count
       else
@@ -43,7 +40,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(params.require(:user).permitpermit(:title, :start_date, :end_date, :all_day, :update_at,:check,:memo))
+    if @user.update(params.require(:user).permit(:title, :start_date, :end_date, :all_day, :update_at,:check,:memo))
       flash[:notice] = "ユーザーIDが「#{@user.id}」の情報を更新しました"
       redirect_to :users
     else
@@ -56,6 +53,7 @@ class UsersController < ApplicationController
       @user.destroy
       flash[:notice] = "ユーザーを削除しました"
       redirect_to :users
+      $numbers= User.count
   end
 
 end
